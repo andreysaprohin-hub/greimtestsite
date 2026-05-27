@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Legacy Genetics — Официальная страница</title>
+<meta name="description" content="Legacy Genetics · Peace, Love and Legacy · Авторская селекция от Лампоголового" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=UnifrakturMaguntia&family=Cormorant+SC:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0a0805;
+    --bg-2:#15110a;
+    --paper:#1a1408;
+    --gold:#c8a24a;
+    --gold-2:#e8c977;
+    --gold-soft:#8a6f2e;
+    --gold-deep:#5c4818;
+    --ink:#0d0a04;
+    --bone:#e8dcc0;
+    --blood:#7a1f1f;
+    --moss:#3a4a2a;
+    --online:#7ac74f;
+    --offline:#8a8a8a;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;background:var(--bg);color:var(--gold);font-family:"Cormorant Garamond",Georgia,serif;-webkit-font-smoothing:antialiased}
+  body{
+    min-height:100vh;min-height:100dvh;overflow-x:hidden;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(200,162,74,.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 100%, rgba(122,31,31,.06) 0%, transparent 50%),
+      var(--bg);
+  }
+  ::selection{background:var(--gold);color:var(--bg)}
+  .mono{font-family:"JetBrains Mono",monospace}
+  .frak{font-family:"UnifrakturMaguntia",serif}
+  .sc{font-family:"Cormorant SC",serif;letter-spacing:.04em}
+
+  /* фон с лёгкой текстурой пергамента */
+  .vignette{
+    position:fixed;inset:0;pointer-events:none;z-index:1;
+    background:
+      radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,.55) 100%),
+      repeating-linear-gradient(0deg, rgba(200,162,74,.012) 0px, rgba(200,162,74,.012) 1px, transparent 1px, transparent 3px);
+  }
+
+  /* ---- верхняя бегущая строка ---- */
+  .marquee{position:relative;z-index:5;background:#000;color:var(--gold);border-bottom:1px solid var(--gold-deep);overflow:hidden;white-space:nowrap;padding:6px 0}
+  .marquee-track{display:inline-flex;gap:48px;animation:scroll 50s linear infinite;font-family:"Cormorant SC",serif;font-size:12px;letter-spacing:.32em;text-transform:uppercase}
+  .marquee-track span{display:inline-flex;align-items:center;gap:48px}
+  .marquee-track span::after{content:"✦";color:var(--gold-soft)}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* ---- основной shell ---- */
+  .shell{position:relative;z-index:3;max-width:780px;margin:0 auto;padding:32px 22px 80px}
+
+  /* ---- герб ---- */
+  .crest{
+    text-align:center;padding:8px 0 4px;position:relative;
+  }
+  .crest .ornament{
+    color:var(--gold-soft);font-size:22px;letter-spacing:.6em;margin:0 0 6px;opacity:.7
+  }
+  .crest .emblem{
+    width:200px;height:200px;margin:0 auto;
+    border:2px solid var(--gold);border-radius:50%;
+    background:
+      radial-gradient(circle at 50% 35%, rgba(232,201,119,.12) 0%, transparent 60%),
+      #000;
+    box-shadow:
+      0 0 0 6px #000,
+      0 0 0 7px var(--gold-deep),
+      0 0 30px rgba(200,162,74,.25),
+      inset 0 0 30px rgba(200,162,74,.1);
+    position:relative;display:flex;align-items:center;justify-content:center;
+  }
+  .crest .emblem svg{width:170px;height:170px;display:block}
+
+  .crest h1{
+    margin:20px 0 4px;
+    font-family:"UnifrakturMaguntia",serif;
+    font-weight:400;font-size:48px;line-height:1;
+    color:var(--gold-2);
+    text-shadow:0 1px 0 var(--gold-deep), 0 2px 8px rgba(200,162,74,.2);
+    letter-spacing:.01em;
+  }
+  .crest .tag{
+    font-family:"Cormorant SC",serif;font-size:13px;letter-spacing:.5em;
+    color:var(--gold-soft);text-transform:uppercase;margin-top:6px;
+  }
+  .crest .motto{
+    font-style:italic;font-size:18px;color:var(--gold);opacity:.85;margin:14px 0 4px;
+  }
+
+  /* ---- divider ---- */
+  .divider{
+    display:flex;align-items:center;gap:14px;margin:32px 0 22px;
+    color:var(--gold-soft);
+  }
+  .divider::before,.divider::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold-deep),transparent)}
+  .divider span{font-family:"Cormorant SC",serif;font-size:13px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold)}
+
+  /* ---- книга / spread ---- */
+  .book{
+    background:
+      radial-gradient(ellipse at center, rgba(200,162,74,.04) 0%, transparent 70%),
+      linear-gradient(180deg, var(--paper) 0%, var(--bg-2) 100%);
+    border:1px solid var(--gold-deep);
+    border-radius:6px;
+    padding:34px 30px 30px;
+    position:relative;
+    box-shadow:
+      0 0 0 1px rgba(0,0,0,.6),
+      0 1px 0 var(--gold-soft) inset,
+      0 18px 40px rgba(0,0,0,.6);
+  }
+  .book::before,.book::after{
+    content:"";position:absolute;width:36px;height:36px;border:1px solid var(--gold-soft);
+    pointer-events:none;
+  }
+  .book::before{top:8px;left:8px;border-right:0;border-bottom:0}
+  .book::after{bottom:8px;right:8px;border-left:0;border-top:0}
+  .corner-tr,.corner-bl{position:absolute;width:36px;height:36px;border:1px solid var(--gold-soft);pointer-events:none}
+  .corner-tr{top:8px;right:8px;border-left:0;border-bottom:0}
+  .corner-bl{bottom:8px;left:8px;border-right:0;border-top:0}
+
+  .chapter-num{
+    font-family:"Cormorant SC",serif;font-size:11px;letter-spacing:.5em;
+    color:var(--gold-soft);text-transform:uppercase;text-align:center;margin-bottom:6px;
+  }
+  .chapter-title{
+    text-align:center;font-family:"UnifrakturMaguntia",serif;
+    font-size:34px;line-height:1.1;color:var(--gold-2);margin:0 0 8px;
+    text-shadow:0 1px 0 var(--gold-deep);
+  }
+  .chapter-sub{
+    text-align:center;font-style:italic;font-size:15px;color:var(--gold);opacity:.7;margin-bottom:18px;
+  }
+
+  /* ---- nav (содержание) ---- */
+  .toc{display:flex;flex-direction:column;gap:0;margin:6px 0}
+  .toc a{
+    display:grid;grid-template-columns:auto 1fr auto;align-items:baseline;gap:14px;
+    padding:14px 4px;text-decoration:none;
+    border-bottom:1px dotted var(--gold-deep);
+    color:var(--gold);transition:background .15s ease, padding .15s ease;
+  }
+  .toc a:hover{background:rgba(200,162,74,.06);padding-left:10px}
+  .toc a:last-child{border-bottom:0}
+  .toc .roman{font-family:"Cormorant SC",serif;font-size:13px;letter-spacing:.2em;color:var(--gold-soft);min-width:40px}
+  .toc .name{font-family:"Cormorant Garamond",serif;font-size:21px;font-weight:600;line-height:1.2}
+  .toc .name small{display:block;font-weight:400;font-style:italic;font-size:13px;color:var(--gold-soft);margin-top:2px;letter-spacing:0}
+  .toc .arr{font-family:"Cormorant SC",serif;font-size:15px;color:var(--gold-soft);transition:transform .15s ease, color .15s ease}
+  .toc a:hover .arr{color:var(--gold-2);transform:translateX(4px)}
+
+  /* ---- глава: контент ---- */
+  .prose{font-family:"Cormorant Garamond",serif;font-size:17px;line-height:1.6;color:var(--bone);margin:0}
+  .prose p{margin:0 0 14px}
+  .prose p:first-child::first-letter{
+    font-family:"UnifrakturMaguntia",serif;font-size:56px;line-height:.85;
+    color:var(--gold-2);float:left;padding:4px 8px 0 0;
+    text-shadow:0 1px 0 var(--gold-deep);
+  }
+  .prose em{color:var(--gold);font-style:italic}
+  .prose strong{color:var(--gold-2);font-weight:600}
+
+  /* ---- ассортимент: карточки линеек ---- */
+  .lineup{display:flex;flex-direction:column;gap:14px;margin-top:8px}
+  .seed-card{
+    display:block;text-decoration:none;color:var(--gold);
+    background:linear-gradient(180deg, rgba(200,162,74,.05) 0%, transparent 100%);
+    border:1px solid var(--gold-deep);border-radius:4px;
+    padding:18px 20px;position:relative;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .seed-card:hover{border-color:var(--gold);transform:translateY(-2px)}
+  .seed-card .top{display:flex;justify-content:space-between;align-items:baseline;gap:14px;margin-bottom:6px}
+  .seed-card .top b{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:22px;color:var(--gold-2);letter-spacing:.01em}
+  .seed-card .top .price{font-family:"Cormorant SC",serif;font-size:13px;letter-spacing:.18em;color:var(--gold-soft);white-space:nowrap}
+  .seed-card .meta{font-family:"Cormorant SC",serif;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:8px}
+  .seed-card p{margin:0;font-size:15px;line-height:1.55;color:var(--bone);opacity:.85}
+  .seed-card .read{display:inline-block;margin-top:10px;font-family:"Cormorant SC",serif;font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--gold-deep);padding-bottom:1px}
+  .seed-card.limited::before{
+    content:"COLLECTORS LIMITED";position:absolute;top:-9px;right:14px;
+    font-family:"Cormorant SC",serif;font-size:10px;letter-spacing:.32em;
+    background:var(--bg);color:var(--gold-2);padding:2px 10px;
+    border:1px solid var(--gold);border-radius:2px;
+  }
+
+  /* ---- секция «свяжитесь» — внизу страницы ---- */
+  .channels{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+  .ch{
+    display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--gold);
+    border:1px solid var(--gold-deep);border-radius:4px;padding:12px 16px;
+    transition:border-color .15s, background .15s;
+  }
+  .ch:hover{border-color:var(--gold);background:rgba(200,162,74,.05)}
+  .ch .ic{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--gold-deep);border-radius:50%;flex-shrink:0}
+  .ch .ic svg{width:20px;height:20px}
+  .ch .body{flex:1;min-width:0}
+  .ch .body b{display:block;font-size:17px;font-weight:600;color:var(--gold-2)}
+  .ch .body span{display:block;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;color:var(--gold-soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+  /* ---- footer ---- */
+  .foot{
+    text-align:center;margin-top:40px;padding:18px 0 0;
+    border-top:1px solid var(--gold-deep);
+    font-family:"Cormorant SC",serif;font-size:11px;letter-spacing:.35em;
+    color:var(--gold-soft);text-transform:uppercase;
+  }
+  .foot .age{display:inline-block;border:1px solid var(--gold-soft);padding:2px 8px;margin-right:8px;color:var(--gold)}
+
+  /* ---- ЧАТ-СКЕЛЕТ В СКЛЕПЕ ---- */
+  .crypt{
+    position:fixed;right:18px;bottom:18px;z-index:50;
+  }
+  .crypt-btn{
+    width:64px;height:64px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #2a2418 0%, #0a0805 80%);
+    border:2px solid var(--gold);
+    box-shadow:0 0 0 4px #000, 0 8px 24px rgba(0,0,0,.7), 0 0 20px rgba(200,162,74,.25);
+    cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:transform .15s ease, box-shadow .15s ease;
+    position:relative;
+  }
+  .crypt-btn:hover{transform:scale(1.06);box-shadow:0 0 0 4px #000, 0 12px 30px rgba(0,0,0,.7), 0 0 30px rgba(200,162,74,.45)}
+  .crypt-btn svg{width:36px;height:36px}
+  .crypt-btn .status-dot{
+    position:absolute;bottom:-2px;right:-2px;width:18px;height:18px;border-radius:50%;
+    background:var(--online);border:3px solid #000;
+    box-shadow:0 0 8px rgba(122,199,79,.6);
+    animation:pulse 2s infinite;
+  }
+  .crypt-btn.is-offline .status-dot{background:var(--offline);box-shadow:none;animation:none}
+  @keyframes pulse{50%{box-shadow:0 0 14px rgba(122,199,79,.9)}}
+
+  .crypt-panel{
+    position:absolute;bottom:78px;right:0;
+    width:min(360px, calc(100vw - 36px));
+    background:linear-gradient(180deg, var(--paper) 0%, var(--bg-2) 100%);
+    border:1px solid var(--gold);border-radius:6px;
+    box-shadow:0 24px 60px rgba(0,0,0,.8), 0 0 30px rgba(200,162,74,.15);
+    padding:0;overflow:hidden;
+    transform-origin:bottom right;
+    transform:scale(.85);opacity:0;pointer-events:none;
+    transition:transform .2s ease, opacity .2s ease;
+  }
+  .crypt-panel.open{transform:scale(1);opacity:1;pointer-events:auto}
+  .crypt-panel header{
+    padding:14px 16px;border-bottom:1px solid var(--gold-deep);
+    display:flex;align-items:center;gap:12px;background:#000;
+  }
+  .crypt-panel header .skull{
+    width:32px;height:32px;border:1px solid var(--gold);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;background:var(--bg);
+  }
+  .crypt-panel header .skull svg{width:18px;height:18px}
+  .crypt-panel header .title{flex:1;min-width:0}
+  .crypt-panel header .title b{display:block;font-family:"Cormorant Garamond",serif;font-size:16px;font-weight:600;color:var(--gold-2);line-height:1.1}
+  .crypt-panel header .title span{display:flex;align-items:center;gap:6px;font-family:"Cormorant SC",serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-soft);margin-top:3px}
+  .crypt-panel header .title .dot{width:7px;height:7px;border-radius:50%;background:var(--online);box-shadow:0 0 6px rgba(122,199,79,.6);animation:pulse 2s infinite}
+  .crypt-panel.is-offline header .title .dot{background:var(--offline);box-shadow:none;animation:none}
+  .crypt-panel header .close{background:none;border:0;color:var(--gold-soft);cursor:pointer;font-size:22px;line-height:1;padding:0 4px}
+  .crypt-panel header .close:hover{color:var(--gold-2)}
+
+  .crypt-body{padding:16px;max-height:340px;overflow-y:auto;display:flex;flex-direction:column;gap:10px}
+  .msg{font-family:"Cormorant Garamond",serif;font-size:15px;line-height:1.5;color:var(--bone)}
+  .msg.them{color:var(--bone)}
+  .msg.them::before{content:"☥ ";color:var(--gold);font-weight:700}
+  .msg.them em{color:var(--gold-soft);font-size:12px;font-family:"Cormorant SC",serif;letter-spacing:.2em;display:block;margin-top:4px;text-transform:uppercase}
+
+  .crypt-actions{padding:12px 16px 16px;border-top:1px solid var(--gold-deep);background:rgba(0,0,0,.3);display:flex;flex-direction:column;gap:8px}
+  .crypt-actions a{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    text-decoration:none;background:var(--gold);color:#000;
+    padding:10px 14px;border-radius:3px;font-family:"Cormorant SC",serif;font-size:13px;letter-spacing:.25em;text-transform:uppercase;font-weight:600;
+    transition:background .15s;
+  }
+  .crypt-actions a:hover{background:var(--gold-2)}
+  .crypt-actions a svg{width:16px;height:16px}
+  .crypt-actions .hint{text-align:center;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:13px;color:var(--gold-soft);margin-top:2px}
+
+  /* ----------- responsive -------- */
+  @media (max-width:520px){
+    .crest h1{font-size:38px}
+    .crest .emblem{width:160px;height:160px}
+    .crest .emblem svg{width:135px;height:135px}
+    .chapter-title{font-size:28px}
+    .book{padding:28px 18px 22px}
+    .shell{padding:24px 14px 100px}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .marquee-track,.crypt-btn .status-dot,.crypt-panel .dot{animation:none !important}
+  }
+</style>
+</head>
+<body>
+
+<div class="vignette" aria-hidden="true"></div>
+
+<!-- бегущая строка -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Legacy Genetics</span><span>Peace · Love · Legacy</span><span>From growers — for growers</span><span>18+ Сувенирная продукция</span><span>Legacy Genetics</span><span>Peace · Love · Legacy</span><span>From growers — for growers</span><span>18+ Сувенирная продукция</span>
+  </div>
+</div>
+
+<main class="shell">
+
+  <!-- ============ ОБЛОЖКА ============ -->
+  <section class="crest">
+    <div class="ornament" aria-hidden="true">✦ ✦ ✦</div>
+    <div class="emblem" aria-label="Legacy Genetics emblem">
+      <!-- стилизованный череп-монах с глазом -->
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#c8a24a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <!-- капюшон -->
+        <path d="M100 28 C70 28 52 50 50 80 C49 100 56 130 72 156 L128 156 C144 130 151 100 150 80 C148 50 130 28 100 28 Z" fill="#000" opacity=".6"/>
+        <path d="M100 28 C70 28 52 50 50 80 C49 100 56 130 72 156 L128 156 C144 130 151 100 150 80 C148 50 130 28 100 28 Z"/>
+        <!-- третий глаз -->
+        <ellipse cx="100" cy="58" rx="9" ry="5" fill="#c8a24a"/>
+        <circle cx="100" cy="58" r="2" fill="#000"/>
+        <!-- череп -->
+        <path d="M78 78 C78 66 88 60 100 60 C112 60 122 66 122 78 L122 96 C122 102 118 106 114 108 L114 116 L108 116 L108 122 L92 122 L92 116 L86 116 L86 108 C82 106 78 102 78 96 Z" fill="#1a1408"/>
+        <path d="M78 78 C78 66 88 60 100 60 C112 60 122 66 122 78 L122 96 C122 102 118 106 114 108 L114 116 L108 116 L108 122 L92 122 L92 116 L86 116 L86 108 C82 106 78 102 78 96 Z"/>
+        <!-- глазницы -->
+        <ellipse cx="91" cy="86" rx="4.5" ry="5" fill="#000"/>
+        <ellipse cx="109" cy="86" rx="4.5" ry="5" fill="#000"/>
+        <!-- нос -->
+        <path d="M100 92 L97 102 L100 104 L103 102 Z" fill="#000"/>
+        <!-- зубы -->
+        <line x1="92" y1="108" x2="92" y2="116"/>
+        <line x1="96" y1="108" x2="96" y2="116"/>
+        <line x1="100" y1="108" x2="100" y2="116"/>
+        <line x1="104" y1="108" x2="104" y2="116"/>
+        <line x1="108" y1="108" x2="108" y2="116"/>
+        <!-- ребра -->
+        <path d="M88 128 Q100 134 112 128"/>
+        <path d="M86 136 Q100 144 114 136"/>
+        <path d="M84 144 Q100 152 116 144"/>
+        <!-- росток в руках -->
+        <path d="M96 158 L100 152 L104 158" fill="none"/>
+        <path d="M100 152 L100 146"/>
+        <path d="M100 148 Q95 144 92 146"/>
+        <path d="M100 148 Q105 144 108 146"/>
+        <!-- семя -->
+        <ellipse cx="100" cy="162" rx="6" ry="4" fill="#c8a24a"/>
+      </svg>
+    </div>
+    <div class="ornament" aria-hidden="true" style="margin-top:14px">✦ ✦ ✦</div>
+
+    <h1>Legacy Genetics</h1>
+    <div class="tag">Official Page</div>
+    <p class="motto">Peace, Love and Legacy</p>
+  </section>
+
+  <div class="divider"><span>Содержание</span></div>
+
+  <!-- ============ КНИГА: содержание ============ -->
+  <article class="book">
+    <span class="corner-tr"></span><span class="corner-bl"></span>
+
+    <div class="chapter-num">Index · Оглавление</div>
+    <h2 class="chapter-title">Добро Пожаловать</h2>
+    <p class="chapter-sub">Приветствую вас, Друзья · Используйте панель быстрого доступа</p>
+
+    <nav class="toc">
+      <a href="#chapter-philosophy">
+        <span class="roman">I.</span>
+        <span class="name">Философия Бренда<small>О наследии, скелетах и идеях</small></span>
+        <span class="arr">читать ✦</span>
+      </a>
+      <a href="#chapter-catalog">
+        <span class="roman">II.</span>
+        <span class="name">Ассортимент и цены<small>Меню семян · 4 линейки</small></span>
+        <span class="arr">читать ✦</span>
+      </a>
+      <a href="https://telegra.ph/Legacy-Genetics---Oplata-i-Dostavka-03-24" target="_blank" rel="noopener">
+        <span class="roman">III.</span>
+        <span class="name">Оплата и доставка<small>Условия и регионы</small></span>
+        <span class="arr">читать ✦</span>
+      </a>
+      <a href="https://telegra.ph/Legacy-Genetics---PokupkaKontaktyReporty-03-25" target="_blank" rel="noopener">
+        <span class="roman">IV.</span>
+        <span class="name">Покупка · Контакты · Репорты<small>Связаться с администрацией</small></span>
+        <span class="arr">читать ✦</span>
+      </a>
+      <a href="https://telegra.ph/Legacy-Genetics---Druzya-i-Partnyory-Brenda-03-26" target="_blank" rel="noopener">
+        <span class="roman">V.</span>
+        <span class="name">Друзья и Партнёры<small>Бренды-союзники</small></span>
+        <span class="arr">читать ✦</span>
+      </a>
+    </nav>
+  </article>
+
+  <!-- ============ ГЛАВА I — ФИЛОСОФИЯ ============ -->
+  <div class="divider"><span>Глава I</span></div>
+
+  <article class="book" id="chapter-philosophy">
+    <span class="corner-tr"></span><span class="corner-bl"></span>
+
+    <div class="chapter-num">Cap. I · Philosophia</div>
+    <h2 class="chapter-title">Философия Бренда</h2>
+    <p class="chapter-sub">Peace, Love and Legacy</p>
+
+    <div class="prose">
+      <p>Здравствуйте, Друзья! На связи создатель Legacy Genetics — <strong>Лампоголовый</strong>, или просто Лампа. Рад видеть вас тут, спасибо что зашли и интересуетесь!</p>
+      <p>Это растение было для меня всегда чем-то особенным — тем, что помогало в трудные минуты не унывать и находить выходы. Поэтому для меня важна не просто культивация или селекция, а <em>служение целям растения и развитию его культуры и наследия</em>. Отсюда и рождается название <strong>Legacy</strong>, означающее Наследие.</p>
+      <p>Ожившие скелеты и черепа в дизайне на фоне семян и растений подчёркивают <em>смертность нас как людей и бессмертие нас как идей и поступков</em>.</p>
+      <p>Мои семена — это совокупность моих идей и поступков. Я работаю только с интересной мне генетикой и её же пытаюсь донести до вас в улучшенном виде. Поскольку я хочу нести настоящее наследие — я указываю <strong>полную генетическую карту</strong> всех моих гибридов, и поэтому вы можете точно знать, какие и чьи гены вы сажаете.</p>
+      <p>От гроверов — для гроверов. Всё в открытом, как книга, виде и в приятном глазу дизайне с достойной упаковкой. Каждая семечка проверяется классическим давлением вручную — это гарантирует отсутствие полых и мёртвых семян.</p>
+      <p style="text-align:right;font-style:italic;color:var(--gold);opacity:.8">— Лампа</p>
+    </div>
+  </article>
+
+  <!-- ============ ГЛАВА II — АССОРТИМЕНТ ============ -->
+  <div class="divider"><span>Глава II</span></div>
+
+  <article class="book" id="chapter-catalog">
+    <span class="corner-tr"></span><span class="corner-bl"></span>
+
+    <div class="chapter-num">Cap. II · Catalogus</div>
+    <h2 class="chapter-title">Ассортимент и Цены</h2>
+    <p class="chapter-sub">Grow The Legacy!</p>
+
+    <div class="prose" style="margin-bottom:18px">
+      <p style="font-style:italic;text-align:center"><strong>Все семена</strong> Legacy Genetics являются <strong>регулярными</strong> — я верю в первозданность и качество регулярной генетики и не хочу лишаться генетического разнообразия в угоду феминизации. Попробуйте сами и сравните на практике.</p>
+    </div>
+
+    <div class="lineup">
+      <a class="seed-card limited" href="https://telegra.ph/Legacy-Genetics---Collectors-Limited-03-23" target="_blank" rel="noopener">
+        <div class="top">
+          <b>Линейка Collectors Limited</b>
+          <span class="price">7 500 ₽</span>
+        </div>
+        <div class="meta">10+ регулярных семян · упаковка</div>
+        <p>Лимитированная коллекция авторских кроссов с эксклюзивной генетикой и оформлением.</p>
+        <span class="read">подробнее →</span>
+      </a>
+
+      <a class="seed-card" href="https://telegra.ph/Legacy-Genetics---Original-03-23" target="_blank" rel="noopener">
+        <div class="top">
+          <b>Оригинальная линейка</b>
+          <span class="price">5 000 ₽</span>
+        </div>
+        <div class="meta">10+ регулярных семян · упаковка</div>
+        <p>Основная линейка — те самые гибриды, с которых начался Legacy. Открытая генетическая карта по каждому кроссу.</p>
+        <span class="read">подробнее →</span>
+      </a>
+
+      <a class="seed-card" href="https://telegra.ph/Legacy-Genetics---Outdoor-Collection-03-23" target="_blank" rel="noopener">
+        <div class="top">
+          <b>Аутдор линейка</b>
+          <span class="price">5 000 ₽</span>
+        </div>
+        <div class="meta">15 авторегулярных семян · упаковка</div>
+        <p>Сорта, отобранные под открытый грунт и северные широты. Авторегулярная генетика.</p>
+        <span class="read">подробнее →</span>
+      </a>
+
+      <a class="seed-card" href="https://telegra.ph/Legacy-Genetics---Regulyarnyj-Nabor-Genetiki-03-25" target="_blank" rel="noopener">
+        <div class="top">
+          <b>Регулярный набор Legacy</b>
+          <span class="price">10 000 ₽</span>
+        </div>
+        <div class="meta">50+ семян · 10+ крестов</div>
+        <p>Большой набор для тех, кто хочет сразу попробовать разную генетику автора. Лучшее предложение для исследователей.</p>
+        <span class="read">подробнее →</span>
+      </a>
+    </div>
+  </article>
+
+  <!-- ============ КОНТАКТЫ ============ -->
+  <div class="divider"><span>Связь</span></div>
+
+  <article class="book">
+    <span class="corner-tr"></span><span class="corner-bl"></span>
+
+    <div class="chapter-num">Contactus</div>
+    <h2 class="chapter-title">Связаться с нами</h2>
+    <p class="chapter-sub">Покупка · Вопросы · Репорты</p>
+
+    <div class="channels">
+      <a class="ch" href="https://t.me/chaossavesusall44" target="_blank" rel="noopener">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a24a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4 2 11l7 3 3 7 9-17z"/><path d="m9 14 6-6"/></svg></div>
+        <div class="body"><b>Лампоголовый (автор)</b><span>t.me/chaossavesusall44</span></div>
+      </a>
+      <a class="ch" href="https://telegra.ph/Legacy-Genetics---PokupkaKontaktyReporty-03-25" target="_blank" rel="noopener">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a24a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v6l4 2"/></svg></div>
+        <div class="body"><b>Покупка · Контакты · Репорты</b><span>Полная страница</span></div>
+      </a>
+      <a class="ch" href="https://telegra.ph/Legacy-Genetics---Druzya-i-Partnyory-Brenda-03-26" target="_blank" rel="noopener">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a24a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/><path d="M17 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="body"><b>Друзья и Партнёры</b><span>Бренды-союзники</span></div>
+      </a>
+    </div>
+  </article>
+
+  <div class="foot">
+    <span class="age">18+</span>
+    Вся информация выше — не призыв и не рекомендация. Семена не содержат запрещённых к продаже веществ и являются сувенирной продукцией. © Legacy Genetics 2026
+  </div>
+
+</main>
+
+<!-- ============ ЧАТ-СКЕЛЕТ ============ -->
+<div class="crypt">
+  <button class="crypt-btn" id="cryptBtn" aria-label="Открыть склеп — связь с автором">
+    <!-- мини-череп -->
+    <svg viewBox="0 0 36 36" fill="none" stroke="#c8a24a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 5 C11 5 7 10 7 17 L7 22 C7 25 9 26 11 27 L11 31 L15 31 L15 29 L21 29 L21 31 L25 31 L25 27 C27 26 29 25 29 22 L29 17 C29 10 25 5 18 5 Z" fill="#1a1408"/>
+      <ellipse cx="13" cy="18" rx="3" ry="3.5" fill="#000"/>
+      <ellipse cx="23" cy="18" rx="3" ry="3.5" fill="#000"/>
+      <path d="M18 22 L16 26 L18 27 L20 26 Z" fill="#000"/>
+    </svg>
+    <span class="status-dot" id="statusDot"></span>
+  </button>
+
+  <div class="crypt-panel" id="cryptPanel" role="dialog" aria-labelledby="cryptTitle">
+    <header>
+      <div class="skull">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#c8a24a" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="11" r="1.5" fill="#c8a24a"/><circle cx="15" cy="11" r="1.5" fill="#c8a24a"/><path d="M9 16 L12 18 L15 16" stroke-linecap="round"/></svg>
+      </div>
+      <div class="title">
+        <b id="cryptTitle">Склеп</b>
+        <span><span class="dot"></span><span id="statusLabel">в сети</span></span>
+      </div>
+      <button class="close" id="cryptClose" aria-label="Закрыть">×</button>
+    </header>
+
+    <div class="crypt-body" id="cryptBody">
+      <div class="msg them">
+        Приветствую, странник. Здесь можно оставить весть автору — ответ придёт в Telegram.
+        <em>Лампа · хранитель наследия</em>
+      </div>
+      <div class="msg them">
+        Чтобы написать напрямую — нажми кнопку ниже. Все вопросы по покупке, репортам и партнёрству — туда же.
+      </div>
+    </div>
+
+    <div class="crypt-actions">
+      <a href="https://t.me/chaossavesusall44" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4 2 11l7 3 3 7 9-17z"/><path d="m9 14 6-6"/></svg>
+        Написать в Telegram
+      </a>
+      <div class="hint">Среднее время ответа — несколько часов</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // открыть/закрыть склеп
+  const btn = document.getElementById('cryptBtn');
+  const panel = document.getElementById('cryptPanel');
+  const closeBtn = document.getElementById('cryptClose');
+  btn.addEventListener('click', () => panel.classList.toggle('open'));
+  closeBtn.addEventListener('click', () => panel.classList.remove('open'));
+
+  // онлайн-статус: пока «всегда онлайн». В будущем можно подключать к реальному статусу автора.
+  // Логика-заглушка: в часы 02:00–08:00 МСК показываем «спит / офлайн»
+  function updateStatus(){
+    const h = new Date().getUTCHours() + 3; // МСК
+    const hh = (h + 24) % 24;
+    const asleep = hh >= 2 && hh < 8;
+    if(asleep){
+      btn.classList.add('is-offline');
+      panel.classList.add('is-offline');
+      document.getElementById('statusLabel').textContent = 'не в сети · отвечу утром';
+    } else {
+      btn.classList.remove('is-offline');
+      panel.classList.remove('is-offline');
+      document.getElementById('statusLabel').textContent = 'в сети';
+    }
+  }
+  updateStatus();
+  setInterval(updateStatus, 60000);
+
+  // плавный скролл по якорям
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+    });
+  });
+
+  // закрыть склеп по Escape
+  document.addEventListener('keydown', e => {
+    if(e.key === 'Escape') panel.classList.remove('open');
+  });
+</script>
+
+</body>
+</html>
